@@ -1,38 +1,107 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.inter-font {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "slnt" 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 99vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (min-width: 768px) {
+  .app-container {
+    height: 100vh;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.dark_theme {
+  background-color: #111112;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.light_theme {
+  background-color: white;
+  color: #111112;
 }
 
-@keyframes App-logo-spin {
+.make-white-border-button {
+  border-bottom: 1px solid rgb(244, 242, 242);
+}
+
+.make-dark-border-button {
+  border-bottom: 1px solid rgb(27, 26, 26);
+}
+
+.dark_text_color {
+  color: rgb(27, 26, 26);
+}
+
+.light_text_color {
+  color: rgb(244, 242, 242);
+}
+
+.center-crop {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes slideDown {
   from {
-    transform: rotate(0deg);
+    max-height: 0;
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    max-height: 500px;
+    opacity: 1;
   }
+}
+
+@keyframes slideUp {
+  from {
+    max-height: 500px;
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+
+.navbar.opening {
+  animation: slideDown 1s forwards;
+}
+
+.navbar.closing {
+  animation: slideUp 0.5s forwards;
+}
+
+/* carousel */
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
